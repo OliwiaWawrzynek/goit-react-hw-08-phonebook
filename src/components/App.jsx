@@ -39,6 +39,15 @@ export class App extends Component {
       filter: e.target.value,
     });
   };
+  
+  componentDidMount() {
+    const storageContacts = JSON.parse(localStorage.getItem('contacts'));
+    if (storageContacts) {
+      this.setState({
+        contacts: storageContacts,
+      });
+    }
+  }
 
   componentDidUpdate(prevState) {
     if (this.state.contacts !== prevState.contacts) {
