@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import css from './ContactForm.module.css';
+import { useState } from "react";
 
-class ContactForm extends Component {
-  state = {
+const ContactForm = props => {
+  const [value, setValue] = useState({
     name: '',
     number: '',
-  };
+  });
 
-  handleSubmit = e => {
+  const { name, number } = value;
+
+  const handleSubmit = e => {
     e.preventDefault();
-    const { name, number } = this.state;
-    this.props.addContact(name, number);
+    const { name, number } = value;
+    props.addContact(name, number);
   };
 
-  handleChange = e => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    setValue(prevState => ({ ...prevState, [name]: value }));
   };
 
-  render() {
-    const { name, number } = this.state;
     return (
-      <form className={css.contactForm} onSubmit={this.handleSubmit}>
+      <form className={css.contactForm} onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name
         </label>
@@ -30,7 +30,7 @@ class ContactForm extends Component {
           className={css.contactInput}
           id="name"
           value={name}
-          onChange={this.handleChange}
+          onChange={handleChange}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -44,7 +44,7 @@ class ContactForm extends Component {
           className={css.contactInput}
           id="number"
           value={number}
-          onChange={this.handleChange}
+          onChange={handleChange}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -57,7 +57,6 @@ class ContactForm extends Component {
       </form>
     );
   }
-}
 
 ContactForm.propTypes = {
   addContact: propTypes.func.isRequired,
