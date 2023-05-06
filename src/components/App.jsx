@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../redux/operations";
 import { selectError, selectIsLoading } from "../redux/selectors";
+import { ThreeDots } from 'react-loader-spinner'
 
 export const App = () => {
 
@@ -24,7 +25,18 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      {isLoading && !error && <h4>Loading in progress, please wait...</h4>}
+      {isLoading && !error && <div>
+        <ThreeDots 
+          height="80" 
+          width="80" 
+          radius="9"
+          color="pink" 
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+        />
+      </div>}
       {error}
       <ContactList />
     </div>
