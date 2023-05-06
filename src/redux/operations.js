@@ -31,7 +31,7 @@ export const addContact = createAsyncThunk(
             }
             const response = await axios.post("/contacts", contact);
                 Notiflix.Notify.success(
-                `Contact with name '${contact.name}' has been added to contacts list.`
+                `'${contact.name}' has been added to contacts list.`
             );
             return response.data;
             } catch (e) {
