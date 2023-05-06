@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import css from './ContactListElement.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from '../../redux/operations';
 
 const ContactListElement = props => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const ContactListElement = props => {
   return (
     <li className={css.contactElement}>
       <p>{props.name}:</p>
-      <p>{props.number}</p>
+      <p>{props.phone}</p>
       <button
         className={css.button}
         type="button"
