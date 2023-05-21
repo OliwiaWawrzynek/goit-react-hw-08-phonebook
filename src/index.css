@@ -9,12 +9,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 a {
-  text-decoration: none;
   color: #1976d2;
+}
+
+h6 {
+  font-weight: 400;
+  font-size: larger;
 }

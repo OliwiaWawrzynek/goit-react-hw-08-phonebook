@@ -14,6 +14,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useAuth } from 'hooks';
+import { NavLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 
 const theme = createTheme();
 
@@ -39,17 +41,17 @@ export const ContactsPage = () => {
             >
             <Toolbar sx={{ flexWrap: 'wrap' }}>
                 <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-                    <a href="/goit-react-hw-08-phonebook"><p>PhoneBook</p></a>
+                    <Link component={NavLink} to="/"><h6>PhoneBook</h6></Link>
                     </Typography>
                     <p>{user.email}</p>
-                    <Button href="/goit-react-hw-08-phonebook" variant="outlined" sx={{ my: 1, mx: 1.5 }}
+                    <Button component={NavLink} to="/" variant="outlined" sx={{ my: 1, mx: 1.5 }}
                     onClick={() => dispatch(logOut())}>
                         Logout
                     </Button>
             </Toolbar>
           </AppBar>
         <div
-            style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', flexWrap: 'wrap', paddingTop: '150px' }}>
+            style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', flexWrap: 'wrap', paddingTop: '200px' }}>
             <ContactForm />
             <h2>Contacts</h2>
             <Filter />

@@ -14,12 +14,13 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import { NavLink } from 'react-router-dom';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="/goit-react-hw-08-phonebook.git">
+      <Link color="inherit" href="https://github.com/OliwiaWawrzynek/goit-react-hw-08-phonebook.git">
         PhoneBook
       </Link>{' '}
       {new Date().getFullYear()}
@@ -56,12 +57,12 @@ export const RegistrationForm = () => {
             >
             <Toolbar sx={{ flexWrap: 'wrap' }}>
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-                <a href="/goit-react-hw-08-phonebook"><p>PhoneBook</p></a>
+                <Link component={NavLink} to="/"><h6>PhoneBook</h6></Link>
                 </Typography>
-                    <Button href="/goit-react-hw-08-phonebook/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                    <Button component={NavLink} to="/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                         Register
                     </Button>
-                    <Button href="/goit-react-hw-08-phonebook/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+                    <Button component={NavLink} to="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
                         Login
                     </Button>
             </Toolbar>
@@ -141,7 +142,7 @@ export const RegistrationForm = () => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/goit-react-hw-08-phonebook/login" variant="body2">
+                <Link component={NavLink} to="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

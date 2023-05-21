@@ -10,12 +10,13 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useAuth } from 'hooks';
+import { NavLink } from 'react-router-dom';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="/goit-react-hw-08-phonebook.git">
+      <Link color="inherit" href="https://github.com/OliwiaWawrzynek/goit-react-hw-08-phonebook.git">
         PhoneBook
       </Link>{' '}
       {new Date().getFullYear()}
@@ -40,18 +41,18 @@ export const HomePage = () => {
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-            <a href="/goit-react-hw-08-phonebook"><p>PhoneBook</p></a>
+            <Link component={NavLink} to="/"><h6>PhoneBook</h6></Link>
           </Typography>
           {isLoggedIn ? (
-            <Button href="/goit-react-hw-08-phonebook/contacts" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+            <Button component={NavLink} to="/contacts" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
               Contacts
             </Button>
           ) : (
               <>
-              <Button href="/goit-react-hw-08-phonebook/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+              <Button component={NavLink} to="/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             Register
           </Button>
-          <Button href="/goit-react-hw-08-phonebook/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button component={NavLink} to="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             Login
                 </Button>
                 </>
@@ -65,10 +66,10 @@ export const HomePage = () => {
               <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Button href="/goit-react-hw-08-phonebook/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button component={NavLink} to="/register" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             Register
           </Button>
-          <Button href="/goit-react-hw-08-phonebook/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+          <Button component={NavLink} to="/login" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             Login
           </Button>
         <Copyright sx={{ mt: 5 }} />
