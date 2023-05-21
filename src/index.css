@@ -22,4 +22,5 @@ a {
 h6 {
   font-weight: 400;
   font-size: larger;
+  text-decoration: underline;
 }
